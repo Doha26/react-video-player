@@ -1,8 +1,12 @@
 import React from 'react';
-
-const NightMode = props => {
+import StyledNightMode from './styles/StyledNightmode'
+const NightMode = ({nightModeCallBack,nightMode}) => {
      return (
-        <div>Night mode !!!</div>
+        <StyledNightMode>
+           <span> NightMode : </span>
+           <label className ="switch" checked={NightMode} onChange="nightModeCallBack"/>
+           <span className="slider round "/>
+        </StyledNightMode>
      );
 };
 
