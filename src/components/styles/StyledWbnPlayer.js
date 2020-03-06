@@ -1,11 +1,11 @@
 import styled from "styled-components";
 
 const StyledWbnPlayer = styled.div`
-  background: ${props => props.theme.bgcolor}; /* #353535; */
+  background: ${props => props.theme.bgcolor};
   border: ${props => props.theme.border};
   max-width: 1800px;
   margin: 0 auto;
-  display: -webkit-box;
+  display: inline-block;
   display: -ms-flexbox;
   display: flex;
   flex-direction: row;

@@ -1,8 +1,8 @@
-import React from 'react';
+import React , {useState,useEffect} from 'react';
 import Video from '../Video';
 import Playlist from '../containers/Playlist';
 import {ThemeProvider} from "styled-components"
-import StyledWbmPlayer from "../styles/StyledWbnPlayer"
+import StyledWbnPlayer from "../styles/StyledWbnPlayer"
 
 const theme = {
      bgcolor:"#353535",
@@ -24,7 +24,17 @@ const themeLight = {
      color:"#353535"
 }
 
-const WBNPlayer = props => {
+const WbnPlayer = props => {
+
+     const videos = JSON.parse(document.querySelector('[name="videos"]').value);
+
+     const [state, setState] = useState ({
+          videos:videos.playlist,
+          activeVideo:videos.playlist[0],
+          nightMode:true,
+          playlistId:videos.playlistId,
+          autoplay:false
+     });
 
      const nightModeCallBack = ()=>{
 
@@ -38,28 +48,26 @@ const WBNPlayer = props => {
 
      };
 
-     const mPlayer = (
-          <StyledWbmPlayer>
-
-               <Video 
-               active={state.activeveVideo} 
-               autoplay={state.autoplay} 
-               endCallback={endCallBack}
-               progressCallback={progressCallBack} />
-
-               <Playlist
-               videos = {state.videos}
-               active={state.activeveVideo}
-               nightMode={state.nightMode} />
-               
-       </StyledWbmPlayer>
-     );
-
      return (
        <ThemeProvider theme={state.nightMode ?theme:themeLight}>
-            {state.videos !== null ? mPlayer: null}
+           {state.videos !== null ? (
+        <StyledWbnPlayer>
+          <Video
+            active={state.activeVideo}
+            autoplay={state.autoplay}
+            endCallback={endCallBack}
+            progressCallback={progressCallBack}
+          />
+          <Playlist
+            videos={state.videos}
+            active={state.activeVideo}
+            nightModeCallBack={nightModeCallBack}
+            nightMode={state.nightMode}
+          />
+        </StyledWbnPlayer>
+      ) : null}
        </ThemeProvider>
      );
 };
 
-export default WBNPlayer;
+export default WbnPlayer;

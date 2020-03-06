@@ -1,21 +1,17 @@
 import React from 'react';
 import PlaylistItem from '../PlaylistItem';
 import StyledPlaylistitems from '../styles/StyledPlaylistitems'
-import StyledPlaylist from '../styles/StyledPlaylist';
 
-const PlaylistItems = (videos,active,) => {
-     return (
-        <StyledPlaylistitems>
-            {videos.map(video=>{
+const PlaylistItems = ({videos,active}) => (
+   <StyledPlaylistitems>
+            {videos.map(video=>(
                <PlaylistItem
                 key={video.id}
                 video={video}
-                active={video.id === active.id?true:false}
+                active={video.id === active.id ? true : false }
                 played={video.played}
                />
-            })}
-        </StyledPlaylistitems>
-     );
-};
-
+            ))}
+   </StyledPlaylistitems>
+)
 export default PlaylistItems;
