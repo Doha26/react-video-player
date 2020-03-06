@@ -8,5 +8,4 @@ const PlaylistItem = ({ video, active, played }) => (
   <div className="wbn-player__video-time">{video.duration}</div>
  </StyledPlaylistItem>
 );
-
 export default PlaylistItem;

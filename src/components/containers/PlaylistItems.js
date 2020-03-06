@@ -1,11 +1,15 @@
 import React from 'react';
 import PlaylistItem from '../PlaylistItem';
+import withLink  from "../hoc/withLink";
 import StyledPlaylistitems from '../styles/StyledPlaylistitems'
+
+
+const PlaylistItemsWithLink = withLink(PlaylistItem);
 
 const PlaylistItems = ({videos,active}) => (
    <StyledPlaylistitems>
             {videos.map(video=>(
-               <PlaylistItem
+               <PlaylistItemsWithLink
                 key={video.id}
                 video={video}
                 active={video.id === active.id ? true : false }
@@ -13,5 +17,5 @@ const PlaylistItems = ({videos,active}) => (
                />
             ))}
    </StyledPlaylistitems>
-)
+);
 export default PlaylistItems;
