@@ -6,7 +6,7 @@ import  StyledPlaylist from '../styles/StyledPlaylist'
 
 const Playlist = ({videos,active,nightModeCallback,nightMode}) => (
      <StyledPlaylist>
-          <NightMode nightModeCallBack={nightModeCallback} nightMode={NightMode}/>
+          <NightMode nightModeCallBack={nightModeCallback} nightMode={nightMode}/>
           <PlaylistHeader active={active} total={videos.length}/>
           <PlaylistItems videos={videos} active={active}/>
      </StyledPlaylist>

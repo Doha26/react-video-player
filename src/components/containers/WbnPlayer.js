@@ -61,7 +61,7 @@ const WbnPlayer = ({match, history, location}) => {
          state.videos]);
 
     const nightModeCallBack = () => {
-
+        setState(prevState => ({ ...prevState, nightMode: !prevState.nightMode }));
     };
 
     const endCallBack = () => {
