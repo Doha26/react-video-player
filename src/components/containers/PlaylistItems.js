@@ -1,10 +1,10 @@
 import React from 'react';
 import PlaylistItem from '../PlaylistItem';
-import withLink  from "../hoc/withLink";
+import withLinkHOC  from "../hoc/withLinkHOC";
 import StyledPlaylistitems from '../styles/StyledPlaylistitems'
 
 
-const PlaylistItemsWithLink = withLink(PlaylistItem);
+const PlaylistItemsWithLink = withLinkHOC(PlaylistItem);
 
 const PlaylistItems = ({videos,active}) => (
    <StyledPlaylistitems>

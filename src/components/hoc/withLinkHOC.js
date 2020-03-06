@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-const withLink = WrappedComponent => props => {
+const withLinkHOC = WrappedComponent => props => {
   const newProps = {
       ...props,
       video:{
@@ -15,4 +15,4 @@ const withLink = WrappedComponent => props => {
   return <WrappedComponent { ...newProps } />;
 };
 
-export  default withLink;
+export  default withLinkHOC;
